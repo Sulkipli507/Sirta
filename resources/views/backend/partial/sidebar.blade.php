@@ -18,6 +18,17 @@
                     <i class="icon-badge menu-icon"></i><span class="nav-text">Tambah Tugas Akhir</span>
                 </a>
             </li>
+            <li class="nav-label">Dosen</li>
+            <li>
+                <a href="widgets.html" aria-expanded="false">
+                    <i class="icon-user menu-icon"></i><span class="nav-text">Dosen Pembimbing</span>
+                </a>
+            </li>
+            <li>
+                <a href="widgets.html" aria-expanded="false">
+                    <i class="icon-user menu-icon"></i><span class="nav-text">Dosen Penguji</span>
+                </a>
+            </li>
             <li class="nav-label">Pengguna</li>
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
