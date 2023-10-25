@@ -29,6 +29,17 @@
                     <i class="icon-user menu-icon"></i><span class="nav-text">Dosen Penguji</span>
                 </a>
             </li>
+            <li class="nav-label">Mahasiswa</li>
+            <li>
+                <a href="widgets.html" aria-expanded="false">
+                    <i class="icon-user menu-icon"></i><span class="nav-text">Mahasiswa Bimbingan</span>
+                </a>
+            </li>
+            <li>
+                <a href="widgets.html" aria-expanded="false">
+                    <i class="icon-user menu-icon"></i><span class="nav-text">Mahasiswa Diuji</span>
+                </a>
+            </li>
             <li class="nav-label">Pengguna</li>
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
