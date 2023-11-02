@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ThesisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('backend.master');
 });
+
+Route::get('/thesis/create', [ThesisController::class, 'create'])->name("thesis-create");

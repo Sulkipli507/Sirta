@@ -1,114 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Sirta</title>
-    <!-- Favicon icon -->
-    @include('backend.partial.link')
+	<!-- Basic Page Info -->
+	<meta charset="utf-8">
+	<title>Sirta</title>
 
+	<!-- Site favicon -->
+	@include('backend.partial.link')
 </head>
-
 <body>
+	{{-- Loading --}}
+    @include('backend.partial.loading')
 
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
+	{{-- Header --}}
+    @include('backend.partial.header')
 
-    
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="main-wrapper">
+	@include('backend.partial.sidebar')
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-        <div class="nav-header">
-            <div class="brand-logo">
-                <a href="index.html">
-                    <b class="logo-abbr"><img src="{{ asset('backend/images/logo.png')}}" alt=""> </b>
-                    <span class="logo-compact"><img src="{{ asset('backend/images/logo-compact.png')}}" alt=""></span>
-                    <span class="brand-title">
-                        <img src="{{ asset('backend/images/logo-text.png')}}" alt="">
-                    </span>
-                </a>
-            </div>
-        </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
+	<div class="mobile-menu-overlay"></div>
 
-        <!--**********************************
-            Header start
-        ***********************************-->
-        @include('backend.partial.header')
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-        @include('backend.partial.sidebar')
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body">
-
-            <div class="row page-titles mx-0">
-                <div class="col p-md-0">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
-                    </ol>
-                </div>
-            </div>
-            <!-- row -->
-
-            <div class="container-fluid">
-
-            </div>
-            <!-- #/ container -->
-        </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-        
-        
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        @include('backend.partial.footer')
-        <!--**********************************
-            Footer end
-        ***********************************-->
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    @include('backend.partial.js')
-
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>blank</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">blank</li>
+								</ol>
+							</nav>
+						</div>
+						<div class="col-md-6 col-sm-12 text-right">
+							<div class="dropdown">
+								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+									January 2018
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" href="#">Export List</a>
+									<a class="dropdown-item" href="#">Policies</a>
+									<a class="dropdown-item" href="#">View Assets</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
+                    @yield('content')
+				</div>
+			</div>
+			{{-- Footer --}}
+            @include('backend.partial.footer')
+		</div>
+	</div>
+	<!-- js -->
+	@include('backend.partial.js')
 </body>
-
 </html>
