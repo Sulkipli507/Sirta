@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Sirta</title>
+	<title>SIRTA</title>
 
 	<!-- Site favicon -->
 	@include('backend.partial.link')
@@ -37,21 +37,17 @@
 						</div>
 						<div class="col-md-6 col-sm-12 text-right">
 							<div class="dropdown">
-								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									January 2018
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Export List</a>
-									<a class="dropdown-item" href="#">Policies</a>
-									<a class="dropdown-item" href="#">View Assets</a>
-								</div>
+								<button class="btn btn-primary" role="button">
+									{{ date('Y') }}
+								</button>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
-                    @yield('content')
-				</div>
+				
+				{{-- Content --}}
+				@yield('content')
+
 			</div>
 			{{-- Footer --}}
             @include('backend.partial.footer')

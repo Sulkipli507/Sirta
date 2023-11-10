@@ -13,10 +13,18 @@ return new class extends Migration
     {
         Schema::create('theses', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->string("nim")->unique();
+            $table->foreignId("concentration_id")->constrained("concentrations")->onUpdate("cascade")->onDelete("cascade");
+            $table->integer("year");
             $table->string("title");
             $table->string("abstract");
             $table->string("file");
-            $table->integer("year");
+            $table->foreignId("mentor1")->constrained("users")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("mentor2")->constrained("users")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("examiner1")->constrained("users")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("examiner2")->constrained("users")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("examiner3")->constrained("users")->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }

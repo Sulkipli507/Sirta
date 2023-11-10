@@ -10,9 +10,21 @@ class Thesis extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
+        'nim',
+        'concentration_id',
+        'year',
         'title',
         'abstract',
         'file',
-        'year'
+        'user_id'
     ];
+
+    public function concentration(){
+        return $this->belongsTo(Concentration::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

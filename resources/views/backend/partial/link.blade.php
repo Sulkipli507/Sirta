@@ -11,7 +11,15 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/styles/core.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/styles/icon-font.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/styles/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend/src/plugins/jquery-steps/jquery.steps.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend/src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('backend/src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
+	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('backend/src/plugins/sweetalert2/sweetalert2.css')}}"> --}}
+	
+	{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10"> --}}
 
+	<!-- SweetAlert2 JS -->
+	{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
