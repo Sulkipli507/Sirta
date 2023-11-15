@@ -24,6 +24,12 @@ Route::get('/', function () {
 // Route Thesis
 Route::get('/thesis/create', [ThesisController::class, 'create'])->name("thesis-create");
 Route::post('/thesis/store',[ThesisController::class, 'store'])->name("thesis-store");
+Route::get('/thesis/index',[ThesisController::class, 'index'])->name("thesis-index");
+Route::get('/thesis/edit/{id}',[ThesisController::class, 'edit'])->name("thesis-edit");
+Route::put('/thesis/update/{id}',[ThesisController::class, 'update'])->name("thesis-update");
+Route::delete('/thesis/delete/{id}',[ThesisController::class, 'destroy'])->name("thesis-delete");
+Route::get('/thesis/index/mentor',[ThesisController::class, 'mentor'])->name("thesis-mentor");
+Route::get('/thesis/index/examiner',[ThesisController::class, 'examiner'])->name("thesis-examiner");
 
 // Route User
 Route::get('/user/index/all', [UserController::class, 'index'])->name("user-all");

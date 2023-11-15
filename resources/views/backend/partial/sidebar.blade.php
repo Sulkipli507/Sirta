@@ -126,7 +126,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="{{ route('thesis-create') }}">Tambah Tugas Akhir</a></li>
-                        <li><a href="datatable.html">Daftar Tugas Akhir</a></li>
+                        <li><a href="{{ route('thesis-index') }}">Daftar Tugas Akhir</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
