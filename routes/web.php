@@ -30,6 +30,9 @@ Route::put('/thesis/update/{id}',[ThesisController::class, 'update'])->name("the
 Route::delete('/thesis/delete/{id}',[ThesisController::class, 'destroy'])->name("thesis-delete");
 Route::get('/thesis/index/mentor',[ThesisController::class, 'mentor'])->name("thesis-mentor");
 Route::get('/thesis/index/examiner',[ThesisController::class, 'examiner'])->name("thesis-examiner");
+Route::get('/thesis/index/user', [ThesisController::class, 'indexUser'])->name("thesis-indexUser");
+Route::get('/thesis/edit/user/{id}', [ThesisController::class, 'editUser'])->name("thesis-editUser");
+Route::delete('/thesis/delete/user/{id}', [ThesisController::class, 'destroyUser'])->name("thesis-deleteUser");
 
 // Route User
 Route::get('/user/index/all', [UserController::class, 'index'])->name("user-all");

@@ -134,8 +134,8 @@
                         <span class="micon dw dw-user1"></span><span class="mtext">Mahasiswa</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="basic-table.html">Dibimbing</a></li>
-                        <li><a href="datatable.html">Diuji</a></li>
+                        <li><a href="{{route('thesis-mentor')}}">Dibimbing</a></li>
+                        <li><a href="{{ route('thesis-examiner') }}">Diuji</a></li>
                     </ul>
                 </li>
                 <li>

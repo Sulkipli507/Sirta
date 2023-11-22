@@ -8,6 +8,7 @@ use App\Models\Thesis;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ThesisController extends Controller
 {
@@ -34,6 +35,7 @@ class ThesisController extends Controller
         ]);
 
         $thesis = new Thesis;
+        $thesis->user_id = Auth::user()->id;
         $thesis->name = $request->get('name');
         $thesis->nim = $request->get('nim');
         $thesis->year = $request->get('year');
@@ -99,20 +101,48 @@ class ThesisController extends Controller
         return redirect()->back();
     }
 
-    public function mentor(){
+    public function mentor(Request $request){
         $user = auth()->id();
         $thesis = Thesis::where('mentor1', $user)
         ->orWhere('mentor2', $user)
         ->paginate(3);
+        $filterKeyword = $request->get('name');
+        if($filterKeyword){
+            $thesis = Thesis::where("name", "LIKE",
+           "%$filterKeyword%")->paginate(3);
+        }
         return view('admin.thesis.mentor', compact('thesis'));
     }
 
-    public function examiner(){
+    public function examiner(Request $request){
         $user = auth()->id();
         $thesis = Thesis::where('examiner1', $user)
         ->orWhere('examiner2', $user)
         ->orWhere('examiner3', $user)
         ->paginate(3);
+        $filterKeyword = $request->get('name');
+        if($filterKeyword){
+            $thesis = Thesis::where("name", "LIKE",
+           "%$filterKeyword%")->paginate(3);
+        }
         return view('admin.thesis.examiner', compact('thesis'));
+    }
+
+    public function indexUser(){
+        $thesisUser = Thesis::where('user_id', auth()->id())->get();
+        return view('admin.thesis.indexUser', compact('thesisUser'));
+    }
+
+    public function editUser($id){
+        $thesis = Thesis::where('user_id', auth()->id())->first();
+        $concentration = Concentration::all();
+        $dosen = User::where('role','Dosen')->get();
+        return view('admin.thesis.editUser', compact('thesis','concentration','dosen'));
+    }
+
+    public function destroyUser($id){
+        $thesis = Thesis::where('user_id', auth()->id());
+        $thesis->delete();
+        return redirect()->back();
     }
 }
