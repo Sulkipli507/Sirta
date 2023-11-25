@@ -22,11 +22,11 @@
                                 <img src="{{ asset('backend/vendors/images/product-img1.jpg') }}" alt="">
                             </div>
                             <div class="product-caption">
-                                <h4><a href="#">{{ $item->title }}</a></h4>
+                                <h4>{{ $item->title }}</h4>
                                 <div class="price">
                                     <ins>{{ $item->name }}</ins>
                                 </div>
-                                <a href="{{ asset('storage/'.$item->file) }}" target="_blank" class="btn btn-outline-primary">Read More</a>
+                                <a href="{{ asset('storage/'.$item->file) }}" target="_blank" class="btn btn-outline-primary">Buka</a>
                             </div>       
                         </div>  
                     </li>

@@ -135,11 +135,11 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="{{route('thesis-mentor')}}">Dibimbing</a></li>
-                        <li><a href="{{ route('thesis-examiner') }}">Diuji</a></li>
+                        <li><a href="{{ route('thesis-examiner')}}">Diuji</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="calendar.html" class="dropdown-toggle no-arrow">
+                    <a href="{{ route('thesis-indexUser') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-file2"></span><span class="mtext">Tugas Akhir Ku</span>
                     </a>
                 </li>

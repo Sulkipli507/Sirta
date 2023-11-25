@@ -22,7 +22,7 @@
                                 <img src="{{ asset('backend/vendors/images/product-img1.jpg') }}" alt="">
                             </div>
                             <div class="product-caption">
-                                <h4><a href="#">{{ $item->title }}</a></h4>
+                                <h4>{{ $item->title }}</h4>
                                 <div class="price">
                                     <ins>{{ $item->name }}</ins>
                                 </div>

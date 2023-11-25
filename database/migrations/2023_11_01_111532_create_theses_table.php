@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId("concentration_id")->constrained("concentrations")->onUpdate("cascade")->onDelete("cascade");
             $table->integer("year");
             $table->string("title");
-            $table->string("abstract");
+            $table->longText("abstract");
             $table->string("file");
             $table->foreignId("mentor1")->constrained("users")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("mentor2")->constrained("users")->onUpdate("cascade")->onDelete("cascade");

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ConcentrationController;
 use App\Http\Controllers\Admin\ThesisController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Landingpage\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('page.index');
+// });
 
 // Route Thesis
 Route::get('/thesis/create', [ThesisController::class, 'create'])->name("thesis-create");
@@ -55,6 +56,12 @@ Route::get('/concentration/index',[ConcentrationController::class, 'index'])->na
 Route::get('/concentration/edit/{id}',[ConcentrationController::class, 'edit'])->name('concentration-edit');
 Route::put('/concentration/update/{id}',[ConcentrationController::class, 'update'])->name("concentration-update");
 Route::delete('/concentration/delete/{id}',[ConcentrationController::class, 'destroy'])->name("concentration-delete");
+
+//Route Page
+Route::get('/',[PageController::class, 'index'])->name('page-index');
+Route::get('/about',[PageController::class, 'showAbout'])->name('page-about');
+Route::get('/thesis',[PageController::class, 'showThesis'])->name('page-thesis');
+Route::get('/thesis/show/{id}',[PageController::class, 'show'])->name('page-show');
 
 // Route Auth
 Auth::routes();
