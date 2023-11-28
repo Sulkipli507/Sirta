@@ -51,7 +51,7 @@
                 </div>
                 <p class="mb-4">{{ $thesis->abstract }}</p>
                 <div class="d-flex align-items-center mt-2">
-                    <a class="btn btn-primary rounded-pill px-4 me-3" href="{{ asset('storage/'.$thesis->file) }}" target="_blank">Baca</a>
+                    <a class="btn btn-primary rounded-pill px-4 me-3" href="{{ route('show-thesisFile', $thesis->id) }}" target="_blank">Baca</a>
                 </div>
             </div>
         </div>

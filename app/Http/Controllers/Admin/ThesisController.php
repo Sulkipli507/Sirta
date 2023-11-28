@@ -14,7 +14,7 @@ class ThesisController extends Controller
 {
     public function create(){
         $concentration = Concentration::all();
-        $dosen = User::where('role', 'Dosen')->get();
+        $dosen = User::where('role', 'Dosen')->where('status', 'Active')->get();
         return view('admin.thesis.create',compact('concentration','dosen'));
     }
 
@@ -66,7 +66,7 @@ class ThesisController extends Controller
     public function edit($id){
         $thesis = Thesis::find($id);
         $concentration = Concentration::all();
-        $dosen = User::where('role','Dosen')->get();
+        $dosen = User::where('role','Dosen')->where('status', 'Active')->get();
         return view('admin.thesis.edit', compact('thesis','concentration','dosen'));
     }
 
@@ -136,7 +136,7 @@ class ThesisController extends Controller
     public function editUser($id){
         $thesis = Thesis::where('user_id', auth()->id())->first();
         $concentration = Concentration::all();
-        $dosen = User::where('role','Dosen')->get();
+        $dosen = User::where('role','Dosen')->where('status','Active')->get();
         return view('admin.thesis.editUser', compact('thesis','concentration','dosen'));
     }
 

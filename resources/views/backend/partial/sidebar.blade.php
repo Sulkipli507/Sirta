@@ -91,6 +91,7 @@
                         <span class="micon dw dw-worldwide-1"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
+                @if (Auth::user()->role == "Admin")
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-group"></span><span class="mtext">User</span>
@@ -129,6 +130,7 @@
                         <li><a href="{{ route('thesis-index') }}">Daftar Tugas Akhir</a></li>
                     </ul>
                 </li>
+                @elseif (Auth::user()->role == "Dosen")
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-user1"></span><span class="mtext">Mahasiswa</span>
@@ -138,11 +140,18 @@
                         <li><a href="{{ route('thesis-examiner')}}">Diuji</a></li>
                     </ul>
                 </li>
+                @else
+                <li>
+                    <a href="{{ route('thesis-create') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-book1"></span><span class="mtext">Upload Tugas Akhir</span>
+                    </a>
+                </li>
                 <li>
                     <a href="{{ route('thesis-indexUser') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-file2"></span><span class="mtext">Tugas Akhir Ku</span>
                     </a>
                 </li>
+                @endif
                 <li>
                     <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-paper-plane1"></span>

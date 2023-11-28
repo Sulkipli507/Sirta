@@ -394,7 +394,8 @@
             </div>
         </div> 
         <div class="form-group row">
-            <div class="col-sm-12 d-flex justify-content-center">
+            <div class="col-sm-12 col-md-2 col-form-label"></div>
+            <div class="col-sm-12 col-md-10">
                 <button type="submit" class="btn btn-lg btn-block btn-primary">
                     {{ __('Simpan') }}
                 </button>

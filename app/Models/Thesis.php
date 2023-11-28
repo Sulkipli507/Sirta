@@ -12,6 +12,7 @@ class Thesis extends Model
     protected $fillable = [
         'name',
         'nim',
+        'count',
         'concentration_id',
         'year',
         'title',

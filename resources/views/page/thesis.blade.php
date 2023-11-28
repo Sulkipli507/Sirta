@@ -38,10 +38,11 @@
                         <div class="service-icon flex-shrink-0">
                             <img width="50px" height="50px" src="{{ asset('frontend/img/unsulbar.png') }}" alt="">
                         </div>
-                        <h5 class="mb-3">{{ $item->name }}</h5>
+                        <h5 class="mb-2">{{ $item->name }}</h5>
                         <p>{{ $item->title }}</p>
-                        <p class="mb-3">{{ $item->year }}</p>
-                        <a class="btn px-3 mt-auto mx-auto" href="{{ route('page-show',$item->id) }}">Read More</a>
+                        <p>{{ $item->year }}</p>
+                        <p><i class="fa fa-eye" aria-hidden="true">&nbsp;{{ $item->count }}</i></p>        
+                        <a class="btn px-3 mt-auto mx-auto mb-4" href="{{ route('page-show',$item->id) }}">Selengkapnya</a>
                     </div>
                 </div>
             @endforeach

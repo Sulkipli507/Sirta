@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("nim")->unique();
             $table->foreignId("concentration_id")->constrained("concentrations")->onUpdate("cascade")->onDelete("cascade");
             $table->integer("year");
+            $table->integer("count")->default(0);
             $table->string("title");
             $table->longText("abstract");
             $table->string("file");

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +19,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $admin = new User;
+        $admin->name = 'Admin';
+        $admin->email = 'admin@gmail.com';
+        $admin->no_unik = '12345678';
+        $admin->gender = 'Laki-laki';
+        $admin->password = \Hash::make('qwertyuiop');
+        $admin->role = 'Admin';
+        $admin->status = 'Active';
+        $admin->save();
+        $this->command->info("Admin berhasil ditambahkan");
     }
 }

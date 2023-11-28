@@ -11,10 +11,8 @@
                 <tr>
                     <th class="table-plus datatable-nosort">Nama</th>
                     <th>NIM</th>
-                    <th>Konsentrasi</th>
                     <th>Judul Penelitian</th>
                     <th>File</th>
-                    <th>Tahun Penelitian</th>
                     <th class="datatable-nosort">Action</th>
                 </tr>
             </thead>
@@ -23,10 +21,8 @@
                 <tr>
                     <td class="table-plus">{{ $item->name }}</td>
                     <td>{{ $item->nim }}</td>
-                    <td>{{ $item->concentration->name }}</td>
                     <td>{{ $item->title }}</td>
                     <td><a href="{{ asset('storage/'.$item->file) }}" target="_blank"><i class="icon-copy dw dw-file2"></i></a></td>
-                    <td>{{ $item->year }}</td>
                     <td>
                         <div class="dropdown">
                             <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

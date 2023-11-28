@@ -22,13 +22,12 @@ class UserController extends Controller
         $users = User::where('status', 'Inactive')->get();
         return view('admin.user.index3',compact('users'));
     }
-
     public function showStudent(){
-        $users = User::where('role', 'Mahasiswa')->get();
+        $users = User::where('role', 'Mahasiswa')->where('status', 'Active')->get();
         return view('admin.user.student',compact('users'));
     }
     public function showLecturer(){
-        $users = User::where('role', 'Dosen')->get();
+        $users = User::where('role', 'Dosen')->where('status', 'Active')->get();
         return view('admin.user.lecturer',compact('users'));
     }
 
