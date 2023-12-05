@@ -65,7 +65,7 @@ class LoginController extends Controller
         }
         
         throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
+            $this->username() => [trans('Kombinasi email dan password salah')],
         ]);
     }
 }

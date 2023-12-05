@@ -1,4 +1,4 @@
-<link href="{{ asset('frontend/img/favicon.ico')}}" rel="icon">
+<link href="{{ asset('frontend/img/icon_sirta.png')}}" rel="icon">
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -87,7 +87,7 @@
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
 				<a href="login.html">
-					<img src="{{ asset('backend/vendors/images/deskapp-logo.svg')}}" alt="">
+					<img src="{{ asset('backend/vendors/images/sirta_loading.png')}}" alt="">
 				</a>
 			</div>
 			<div class="login-menu">
@@ -101,13 +101,22 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-6 col-lg-7">
-					<img src="{{ asset('backend/vendors/images/login-page-img.png')}}" alt="">
+					<img src="{{ asset('backend/vendors/images/login.png')}}" alt="">
 				</div>
 				<div class="col-md-6 col-lg-5">
 					<div class="login-box bg-white box-shadow border-radius-10">
 						<div class="login-title">
 							<h2 class="text-center text-primary">Login To SIRTA</h2>
 						</div>
+						@if(session('status'))
+							<div id="notification" class="alert alert-success alert-dismissible fade show" role="alert">
+								<strong>Berhasil</strong>&nbsp;{{ session('status') }}
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						@endif
+
 						<form method="POST" action="{{ route('login') }}">
                             @csrf
 							<div class="input-group custom">
@@ -155,7 +164,7 @@
 									</div>
 									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
 									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('register') }}">Register To Create Account</a>
+										<a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('register') }}">Register</a>
 									</div>
 								</div>
 							</div>
@@ -165,6 +174,14 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		var notification = document.getElementById('notification');
+		setTimeout(function() {
+			notification.style.display = 'none';
+		}, 5000);
+	</script>
+	
 	<!-- js -->
 	@include('backend.partial.js')
 </body>

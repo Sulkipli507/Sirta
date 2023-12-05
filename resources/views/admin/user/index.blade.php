@@ -1,36 +1,42 @@
 @extends('backend.master')
+@section('header')
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>User</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">All user</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                <button class="btn btn-primary" role="button">
+                    {{ date('Y') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 @section('content')
-{{-- <div class="card-box mb-30">
-    <div class="pd-20">
-        <h4 class="text-blue h4">Data Table with multiple select row</h4>
+@if(session('status'))
+    <div id="notification" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Berhasil</strong>&nbsp;{{ session('status') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="pb-20">
-        <table class="data-table table hover multiple-select-row nowrap">
-            <thead>
-                <tr>
-                    <th class="table-plus datatable-nosort">Nama</th>
-                    <th>NIM</th>
-                    <th>Jenis kelamin</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($users as $item)
-                <tr>
-                    <td class="table-plus">{{ $item->name }}</td>
-                    <td>{{ $item->nim }}</td>
-                    <td>{{ $item->gender }}</td>
-                    <td>{{ $item->email }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div> --}}
+@endif
+
 <div class="card-box mb-30">
     <div class="pd-20">
         <h4 class="text-blue h4">Data Pengguna</h4>
-        <p class="mb-0">you can find more options <a class="text-primary" href="https://datatables.net/" target="_blank">Click Here</a></p>
+        <p class="mb-0">Semua data user</p>
     </div>
     <div class="pb-20">
         <table class="data-table table stripe hover nowrap">
@@ -99,4 +105,10 @@
         </table>
     </div>
 </div>
+<script>
+    var notification = document.getElementById('notification');
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 5000);
+</script>
 @endsection

@@ -82,6 +82,6 @@ class RegisterController extends Controller
     protected function registered()
     {
         Auth::logout();
-        return redirect(route('login'));
+        return redirect(route('login'))->with('status', 'Buat akun, silahkan menghubungi admin untuk mengaktifkan akun anda!');
     }
 }

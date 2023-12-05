@@ -1,8 +1,8 @@
 <div class="right-sidebar">
     <div class="sidebar-title">
         <h3 class="weight-600 font-16 text-blue">
-            Layout Settings
-            <span class="btn-block font-weight-400 font-12">User Interface Settings</span>
+            Pengaturan Tampilan
+            <span class="btn-block font-weight-400 font-12">Tampilan pengguna</span>
         </h3>
         <div class="close-sidebar" data-toggle="right-sidebar-close">
             <i class="icon-copy ion-close-round"></i>
@@ -10,16 +10,16 @@
     </div>
     <div class="right-sidebar-body customscroll">
         <div class="right-sidebar-body-content">
-            <h4 class="weight-600 font-18 pb-10">Header Background</h4>
+            <h4 class="weight-600 font-18 pb-10">Warna header</h4>
             <div class="sidebar-btn-group pb-30 mb-10">
-                <a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
-                <a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
+                <a href="javascript:void(0);" class="btn btn-outline-primary header-white active">Putih</a>
+                <a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Hitam</a>
             </div>
 
-            <h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
+            <h4 class="weight-600 font-18 pb-10">Warna sidebar</h4>
             <div class="sidebar-btn-group pb-30 mb-10">
-                <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
-                <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
+                <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">Putih</a>
+                <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Hitam</a>
             </div>
 
             <h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
@@ -75,9 +75,9 @@
 
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="index.html">
-            <img src="{{ asset('backend/vendors/images/deskapp-logo.svg')}}" alt="" class="dark-logo">
-            <img src="{{ asset('backend/vendors/images/deskapp-logo-white.svg')}}" alt="" class="light-logo">
+        <a href="#">
+            <img src="{{ asset('backend/vendors/images/sirta_light.png')}}" alt="" class="dark-logo">
+            <img src="{{ asset('backend/vendors/images/sirta_dark.png')}}" alt="" class="light-logo">
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
@@ -153,7 +153,7 @@
                 </li>
                 @endif
                 <li>
-                    <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
+                    <a href="{{ route('page-index') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-paper-plane1"></span>
                         <span class="mtext">Landing Page</span>
                     </a>

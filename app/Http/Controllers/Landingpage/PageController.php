@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Thesis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class PageController extends Controller
 {
@@ -42,11 +43,13 @@ class PageController extends Controller
     }
 
     public function showThesisFile($id){
-        $thesis = Thesis::findOrFail($id);
+        $thesis = Thesis::find($id);
         if (Auth::check()) {
-            return response()->file(storage_path('app/public/'.$thesis->file));
+            $fileResponse = response()->file(storage_path('app/public/'.$thesis->file));
+            $fileResponse->headers->set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+            return $fileResponse;
         } else {
-            return redirect()->route('login')->with('message', 'Anda harus login untuk mengakses file ini.');
+            return redirect()->route('login');
         }
     }
 }

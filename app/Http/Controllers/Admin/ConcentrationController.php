@@ -20,7 +20,7 @@ class ConcentrationController extends Controller
         $user = new Concentration;
         $user->name = $request->get('name');
         $user->save();
-        return redirect()->route('concentration-index');
+        return redirect()->route('concentration-index')->with('status', 'Tambah data konsentrasi');
     }
 
     public function index(){
@@ -39,12 +39,12 @@ class ConcentrationController extends Controller
         ]);
         $concentration = Concentration::find($id);
         $concentration->update($request->all());
-        return redirect()->route('concentration-index');
+        return redirect()->route('concentration-index')->with('status', 'Update data konsentrasi');
     }
 
     public function destroy($id){
         $concentration = Concentration::find($id);
         $concentration->delete();
-        return redirect()->route('concentration-index');
+        return redirect()->route('concentration-index')->with('status', 'Hapus data konsentrasi');
     }
 }

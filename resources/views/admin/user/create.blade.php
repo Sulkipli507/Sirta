@@ -1,11 +1,44 @@
 @extends('backend.master')
+@section('header')
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>User</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tambah user</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                <button class="btn btn-primary" role="button">
+                    {{ date('Y') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
 @section('content')
+@if(session('status'))
+    <div id="notification" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Berhasil</strong>&nbsp;{{ session('status') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 <!-- Default Basic Forms Start -->
 <div class="pd-20 card-box mb-30">
     <div class="clearfix">
         <div class="pull-left">
             <h4 class="text-blue h4">Tambah Pengguna</h4>
-            <p class="mb-30">All bootstrap element classies</p>
+            <p class="mb-30">Form tambah pengguna</p>
         </div>
     </div>
     <form action="{{ route('user-store') }}" method="POST">
@@ -116,5 +149,12 @@
         </div>
     </form>
 </div>
+
+<script>
+    var notification = document.getElementById('notification');
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 5000);
+</script>
 <!-- Default Basic Forms End -->
 @endsection

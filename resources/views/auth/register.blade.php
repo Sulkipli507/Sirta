@@ -93,12 +93,12 @@
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
 				<a href="login.html">
-					<img src="{{ asset('backend/vendors/images/deskapp-logo.svg') }}" alt="">
+					<img src="{{ asset('backend/vendors/images/sirta_loading.png') }}" alt="">
 				</a>
 			</div>
 			<div class="login-menu">
 				<ul>
-					<li><a href="login.html">Login</a></li>
+					<li><a href="{{ route('login') }}">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-6 col-lg-7">
-					<img src="{{ asset('backend/vendors/images/register-page-img.png')}}" alt="">
+					<img src="{{ asset('backend/vendors/images/regist.png')}}" alt="">
 				</div>
 				<div class="col-md-6 col-lg-5">
 					<div class="register-box bg-white box-shadow border-radius-10">
@@ -187,7 +187,7 @@
 		
 								<div class="row mb-0">
 									<div class="col-md-6 offset-md-4">
-										<button type="submit" class="btn btn-primary">
+										<button type="submit" class="btn btn-primary btn-lg btn-block">
 											{{ __('Register') }}
 										</button>
 									</div>

@@ -41,7 +41,7 @@
                         <h5 class="mb-2">{{ $item->name }}</h5>
                         <p>{{ $item->title }}</p>
                         <p>{{ $item->year }}</p>
-                        <p><i class="fa fa-eye" aria-hidden="true">&nbsp;{{ $item->count }}</i></p>        
+                        {{-- <p><i class="fa fa-eye" aria-hidden="true">&nbsp;{{ $item->count }}</i></p>  --}}
                         <a class="btn px-3 mt-auto mx-auto mb-4" href="{{ route('page-show',$item->id) }}">Selengkapnya</a>
                     </div>
                 </div>

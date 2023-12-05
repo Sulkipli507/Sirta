@@ -18,6 +18,7 @@ class UserController extends Controller
         $users = User::where('status', 'Active')->get();
         return view('admin.user.index2',compact('users'));
     }
+    
     public function indexInactive(){
         $users = User::where('status', 'Inactive')->get();
         return view('admin.user.index3',compact('users'));
@@ -62,7 +63,7 @@ class UserController extends Controller
         $user->role = $request->get('role');
         $user->status = $request->get('status');
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Tambah user baru');
     }
 
     public function edit($id){
@@ -81,13 +82,13 @@ class UserController extends Controller
 
         $user = User::where('id',$id)->first();
         $user->update($request->all());
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Update data user');
     }
 
     public function destroy($id){
         $user = User::where('id',$id)->first();
         $user->delete();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Hapus data user');
     }
 
     public function updatePassword(Request $request, $id){
@@ -97,6 +98,27 @@ class UserController extends Controller
         $user = User::find($id);
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Update password');
+    }
+
+    public function editProfile(){
+        $user = User::where('id',auth()->id())->first();
+        return view('admin.user.profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request, $id){
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'no_unik' => ['required', 'string', 'max:255', 'unique:users,no_unik,' . $id],
+            'gender' => ['required', 'string',Rule::in(['Laki-laki', 'Perempuan'])],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $id]
+        ]);
+        $user = User::findOrFail($id);
+        $user->name = $request->get('name');
+        $user->no_unik = $request->get('no_unik');
+        $user->gender = $request->get('gender');
+        $user->email = $request->get('email');
+        $user->save();
+        return redirect()->back()->with('status', 'Update profile');
     }
 }

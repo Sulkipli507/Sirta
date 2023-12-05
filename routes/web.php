@@ -40,12 +40,11 @@ Route::middleware(['auth', 'CheckRole:Admin'])->group(function(){
     Route::get('/user/index/lecturer',[UserController::class, 'showLecturer'])->name("user-lecturer");
     Route::put('/user/updateStatus/{id}',[UserController::class, 'updateStatus'])->name("user-updateStatus");
     Route::get('/user/create',[UserController::class, 'create'])->name("user-create");
-    Route::post('/user/store', [UserController::class, 'store'])->name("user-store");
     Route::get('/user/edit/{id}',[UserController::class, 'edit'])->name("user-edit");
-    Route::put('/user/update/{id}',[UserController::class, 'update'])->name("user-update");
     Route::delete('/user/delete/{id}',[UserController::class, 'destroy'])->name("user-delete");
-    Route::put('/user/updatePassword/{id}',[UserController::class, 'updatePassword'])->name("user-updatePassword");
-
+    Route::post('/user/store', [UserController::class, 'store'])->name("user-store");
+    Route::put('/user/update/{id}',[UserController::class, 'update'])->name("user-update");
+    
     //Route Concentration
     Route::get('/concentration/create',[ConcentrationController::class, 'create'])->name("concentration-create");
     Route::post('/concentration/store',[ConcentrationController::class, 'store'])->name("concentration-store");
@@ -53,7 +52,7 @@ Route::middleware(['auth', 'CheckRole:Admin'])->group(function(){
     Route::get('/concentration/edit/{id}',[ConcentrationController::class, 'edit'])->name('concentration-edit');
     Route::put('/concentration/update/{id}',[ConcentrationController::class, 'update'])->name("concentration-update");
     Route::delete('/concentration/delete/{id}',[ConcentrationController::class, 'destroy'])->name("concentration-delete");
-
+    
     //Route Thesis
     Route::get('/thesis/index',[ThesisController::class, 'index'])->name("thesis-index");
     Route::get('/thesis/edit/{id}',[ThesisController::class, 'edit'])->name("thesis-edit");
@@ -80,4 +79,7 @@ Route::middleware(['auth', 'CheckRole:Mahasiswa'])->group(function(){
 Route::middleware(['auth', 'CheckRole:Admin,Dosen,Mahasiswa'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/thesis/show/file/{id}', [PageController::class, 'showThesisFile'])->name("show-thesisFile");
+    Route::get('/user/profile', [UserController::class, 'editProfile'])->name('user-profile');
+    Route::put('/user/updateProfile/{id}', [UserController::class, 'updateProfile'])->name('user-updateProfile');
+    Route::put('/user/updatePassword/{id}',[UserController::class, 'updatePassword'])->name("user-updatePassword");
 });

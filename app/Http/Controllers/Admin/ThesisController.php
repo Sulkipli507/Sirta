@@ -55,7 +55,7 @@ class ThesisController extends Controller
             $thesis->file = $file;
             }         
         $thesis->save();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Upload tugas akhir');
     }
 
     public function index(){
@@ -92,13 +92,13 @@ class ThesisController extends Controller
         $thesis->examiner2 = $request->get('examiner2');
         $thesis->examiner3 = $request->get('examiner3');
         $thesis->save();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Update data tugas akhir');
     }
 
     public function destroy($id){
         $thesis = Thesis::find($id);
         $thesis->delete();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Hapus data tugas akhir');
     }
 
     public function mentor(Request $request){
@@ -143,6 +143,6 @@ class ThesisController extends Controller
     public function destroyUser($id){
         $thesis = Thesis::where('user_id', auth()->id());
         $thesis->delete();
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Hapus data tugas akhirku');
     }
 }
