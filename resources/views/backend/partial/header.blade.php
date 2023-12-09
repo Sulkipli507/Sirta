@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="github-link">
-            <a href="#" target="_blank"><img src="{{ asset('backend/vendors/images/github.svg')}}" alt=""></a>
+            <a href="#"><img src="{{ asset('backend/vendors/images/github.svg')}}" alt=""></a>
         </div>
     </div>
 </div>

@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class ThesisController extends Controller
 {
@@ -71,6 +72,21 @@ class ThesisController extends Controller
     }
 
     public function update(Request $request, $id){      
+        $this->validate($request, [
+            'name' => ['required'],
+            'nim' => ['required', Rule::unique('theses')->ignore($id)],
+            'year' => ['required'],
+            'concentration_id' => ['required'],
+            'file' => ['sometimes', 'file', 'mimes:pdf'],
+            'title' => ['required'],
+            'abstract' => ['required'],
+            'mentor1' => ['required'],
+            'mentor2' => ['required'],
+            'examiner1' => ['required'],
+            'examiner2' => ['required'],
+            'examiner3' => ['required'],
+        ]);
+        
         $thesis = Thesis::find($id);
         $thesis->name = $request->get('name');
         $thesis->nim = $request->get('nim');

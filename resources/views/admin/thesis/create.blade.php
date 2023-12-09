@@ -105,18 +105,13 @@
         </div>
         <div class="form-group row">
             <label for="file" class="col-sm-12 col-md-2 col-form-label">File</label>
-            <div class="col-sm-10 col-md-8 mb-2">
+            <div class="col-sm-10 col-md-10 mb-2">
                 <input id="file" name="file" type="file" class="form-control-file form-control height-auto @error('file') is-invalid @enderror">
                 @error('file')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
-            <div class="col-md-2">
-                <a class="btn btn-primary text-light">
-                    Cek plagiasi
-                </a>
             </div>
         </div>
         <div class="form-group row">
